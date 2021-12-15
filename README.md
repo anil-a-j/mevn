@@ -13,7 +13,7 @@ Next go to the frontend directory through the root directory and run the same co
 
 ## How to run the project
 ```npm run dev```
-GoTO [http://localhost:8080/](http://localhost:8080/)
+  then Go tO [http://localhost:8080/](http://localhost:8080/)
 
 ## How to run frontend only
 ```npm run client```
