@@ -72,16 +72,17 @@ export default {
       }
       const data = await res.json();
 
-      this.clients.forEach((client) => {
+      this.clients = this.clients.map((client) => {
         if (client._id === clientNewData.id) {
-          let pos = this.clients.indexOf(client);
-          this.clients.splice(pos, 1, {
+          return {
             ...client,
             name: data.name,
             email: data.email,
             phone: data.phone,
             providers: data.providers,
-          });
+          };
+        } else {
+          return client;
         }
       });
 
