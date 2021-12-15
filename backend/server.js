@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import connectDB from "./config/db.js";
 import morgan from "morgan";
+import swaggerUi from "swagger-ui-express";
+import { swaggerJson } from "./swagger.js";
 
 import clientRoutes from "./routes/clientRoutes.js";
 import providerRoutes from "./routes/providerRoutes.js";
@@ -13,6 +15,9 @@ dotenv.config();
 connectDB();
 
 const app = express();
+
+app.use("/api-docs", swaggerUi.serve);
+app.get("/api-docs", swaggerUi.setup(swaggerJson));
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
